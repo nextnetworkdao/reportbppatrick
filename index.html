@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SEO Performance Report – Juni vs Juli 2025</title>
+
+<style>
+/* Modal gambar full screen */
+.img-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+.img-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.img-modal.show {
+  display: flex;
+  animation: fadeIn .3s ease;
+}
+@media (max-width: 560px) {
+  table, th, td {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+}
+body {
+  overflow-x: hidden;
+}
+
+.section {
+  overflow-x: auto;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper table {
+  width: max-content;
+  min-width: 100%;
+}
+
+/* Tambahan untuk tampilan mobile */
+@media (max-width: 560px) {
+  .table-wrapper table {
+    font-size: 12px;
+    min-width: 600px;
+  }
+
+  th, td {
+    white-space: nowrap;
+    padding: 6px 8px;
+  }
+}
+:root{
+  --primary:#4F46E5;
+  --primary-dark:#3730A3;
+  --bg:#F9FAFB;
+  --surface:#FFFFFF;
+  --text:#111827;
+  --radius:14px;
+  --shadow:0 6px 16px rgba(0,0,0,.08);
+  --transition:.4s cubic-bezier(.25,.8,.5,1);
+  --perspective:800px;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--text);}
+body{background:var(--bg);line-height:1.55;padding-top:72px;overflow-x:hidden;}
+h1,h2,h3{font-weight:600;color:var(--primary-dark);}
+p,li{font-size:15px;}
+img{max-width:100%;display:block;border-radius:var(--radius);box-shadow:var(--shadow);}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
+th,td{padding:10px 14px;border:1px solid #E5E7EB;text-align:left;white-space:nowrap;}
+th{background:#EEF2FF;}
+tr:nth-child(even) td{background:#F3F4F6;}
+ul{margin-left:18px;padding-left:6px;}
+header{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:64px;display:flex;align-items:center;justify-content:center;
+  background:var(--primary);box-shadow:var(--shadow);color:#FFF;
+  backdrop-filter:blur(10px);
+}
+header h1{font-size:19px;color:#FFF;letter-spacing:.4px;}
+.tabs{
+  display:flex;justify-content:space-around;align-items:center;
+  background:var(--surface);margin:0 auto;width:100%;max-width:760px;
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  perspective:var(--perspective);transform-style:preserve-3d;
+}
+.tab-btn{
+  flex:1;padding:14px 0;font-weight:600;border:none;
+  background:transparent;cursor:pointer;color:var(--primary-dark);
+  transition:var(--transition);
+}
+.tab-btn.active{background:var(--primary);color:#FFF;border-radius:var(--radius);}
+.section{
+  display:none;padding:24px;background:var(--surface);margin:24px auto;
+  width:100%;max-width:760px;border-radius:var(--radius);box-shadow:var(--shadow);
+  animation:fadeIn .6s ease both;
+  transform:rotateX(-10deg) translateZ(60px);
+  overflow-x:auto;
+}
+.section.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+.section:hover{transform:rotateX(0deg) translateZ(0);transition:transform .6s ease;}
+@media(max-width:560px){
+  header h1{font-size:16px;}
+  .tab-btn{font-size:13px;padding:12px 0;}
+  table,th,td{font-size:13px;}
+}
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table-wrapper table {
+  min-width: 600px;
+  width: max-content;
+}
+</style>
+</head>
+
+<body>
+<header>  <img src="https://goplus.id/wp-content/uploads/2024/09/20240916_202651.png" width="100px" />
+<br></header><center><br>
+<h3>Laporan SEO Juni–Juli&nbsp;2025</h3></center><br>
+<div class="tabs" id="tabs">
+  <button class="tab-btn active" data-target="ahlifumigasi">Ahlifumigasi.com</button>
+  <button class="tab-btn" data-target="sensorgempa">Sensorgempa.com</button>
+  <button class="tab-btn" data-target="tanogaido">Tanogaido.com</button>
+</div>
+
+<section id="ahlifumigasi" class="section active">
+<figure>
+  <img src="ahli.jpg" alt="Screenshot Ahlifumigasi" /><center>
+  <figcaption>Sumber: Google Search Console</figcaption></center>
+</figure>
+  <br>
+  <h2>Ringkasan Performa</h2>
+  <p>Dashboard menunjukkan peningkatan signifikan di semua metrik kunci dari Juni ke Juli 2025, dengan pertumbuhan yang sangat positif di seluruh area.</p>
+<br>
+  <h3>Tabel Perbandingan Metrik</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Metrik</th><th>Juni 2025</th><th>Juli 2025</th><th>Perubahan Absolut</th><th>Perubahan %</th><th>Status</th></tr>
+      </thead>
+      <div class="img-modal" id="imgModal">
+  <img src="" id="modalImage" alt="Zoomed Image" />
+</div>
+<script>
+// Buka modal saat gambar diklik
+document.querySelectorAll("img").forEach(img => {
+  img.addEventListener("click", () => {
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImage");
+    modalImg.src = img.src;
+    modal.classList.add("show");
+  });
+});
+
+// Tutup modal saat klik di luar gambar
+document.getElementById("imgModal").addEventListener("click", (e) => {
+  if (e.target.id === "imgModal") {
+    e.target.classList.remove("show");
+  }
+});
+</script>
+      <tbody>
+        <tr><td>Total Klik</td><td>50</td><td>93</td><td>+43 klik</td><td>+86.0%</td><td>↗ Naik</td></tr>
+        <tr><td>Total Tayangan </td><td>4,760</td><td>7,170</td><td>+2,410</td><td>+50.6%</td><td>↗ Naik</td></tr>
+        <tr><td>CTR Rata-rata</td><td>1.1%</td><td>1.3%</td><td>+0.2 pp</td><td>+18.2%</td><td>↗ Naik</td></tr>
+        <tr><td>Posisi Rata-rata</td><td>21.6</td><td>19.1</td><td>-2.5&nbsp;posisi</td><td>11.6% membaik</td><td>↗ Membaik</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Analisis Mendalam</h3>
+  <ul>
+    <li><strong>Analisis Efisiensi</strong> – CTR Juli 1.30 % vs Juni 1.05 % (↑23.5 %). Peningkatan menunjukkan kualitas website &amp; relevansi konten makin baik.</li>
+    <li><strong>Volume Pertumbuhan</strong> – Klik +86 %, Tayangan +51 %. Rasio klik yang lebih tinggi menandakan efektivitas meningkat.</li>
+    <li><strong>Positioning &amp; Visibilitas</strong> – Posisi rata-rata naik 2.5 ke 19.1 (↑11.6 %), memperbesar visibilitas &amp; traffic.</li>
+    <li><strong>Korelasi Metrik</strong> – Tayangan ↑50.6 % ⟹ Klik ↑86 %; CTR naik 18.2 % menegaskan optimasi konten berhasil.</li>
+  </ul>
+</section>
+
+<section id="sensorgempa" class="section">
+<figure>
+  <img src="sensor.jpg" alt="Screenshot Ahlifumigasi" /><center>
+  <figcaption>Sumber: Google Search Console</figcaption></center>
+</figure>
+  <br>
+  <h2>Ringkasan Performa</h2>
+  <p>Dashboard baru menunjukkan perubahan dinamis pada metrik kinerja antara Juni ke Juli 2025</p>
+<br>
+  <h3>Tabel Perbandingan Metrik</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Metrik</th><th>Juni 2025</th><th>Juli 2025</th><th>Perubahan Absolut</th><th>Perubahan %</th><th>Tren</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Total Klik</td><td>212</td><td>222</td><td>+10</td><td>+4.7%</td><td>Naik</td></tr>
+        <tr><td>Total Tayangan</td><td>54,400</td><td>22,700</td><td>-31,700</td><td>-58.3%</td><td>Turun</td></tr>
+        <tr><td>CTR Rata-rata</td><td>0.4%</td><td>1.0%</td><td>+0.6 pp</td><td>+150.0%</td><td>Naik</td></tr>
+        <tr><td>Posisi Rata-rata</td><td>9.8</td><td>12.7</td><td>+2.9 posisi</td><td>29.6% memburuk</td><td>Membaik¹</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Interpretasi &amp; Analisis</h3>
+  <ul>
+    <li><strong>Total Klik</strong> naik tipis 4.7 %, menjaga stabilitas meski tayangan turun drastis.</li>
+    <li><strong>Efisiensi Traffic</strong> – Tayangan turun, tetapi CTR melonjak, audiens kian relevan.</li>
+    <li><strong>Stabilitas Klik</strong> – Volume klik relatif stabil, kampanye tetap menarik walau reach mengecil.</li>
+  </ul>
+</section>
+
+<section id="tanogaido" class="section">
+<figure>
+  <img src="tanogaido.jpg" alt="Screenshot Ahlifumigasi" /><center>
+  <figcaption>Sumber: Google Search Console</figcaption></center>
+</figure>
+    <br>
+  <h2>Ringkasan Performa</h2>
+  <p>Dashboard menunjukkan peningkatan signifikan di semua metrik kunci dari Juni ke Juli 2025, dengan pertumbuhan yang sangat positif.</p>
+<br>
+  <h3>Tabel Perbandingan Metrik</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Metrik</th><th>Juni 2025</th><th>Juli 2025</th><th>Perubahan Absolut</th><th>Perubahan %</th><th>Tren</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Total Klik</td><td>1,430</td><td>1,980</td><td>+550</td><td>+38.5%</td><td>Naik</td></tr>
+        <tr><td>Total Tayangan</td><td>213,000</td><td>282,000</td><td>+69,000</td><td>+32.4%</td><td>Naik</td></tr>
+        <tr><td>CTR Rata-rata</td><td>0.7%</td><td>0.7%</td><td>0</td><td>0.0%</td><td>Stabil</td></tr>
+        <tr><td>Posisi Rata-rata</td><td>21.7</td><td>17.7</td><td>-4.0 posisi</td><td>+18.4% Naik</td><td>Membaik</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Interpretasi &amp; Insight</h3>
+  <ul>
+    <li><strong>Total Klik &amp; Tayangan Naik Signifikan</strong> – Klik ↑38.5 %, Tayangan ↑32.4 %; volume &amp; reach meningkat.</li>
+    <li><strong>CTR Stabil</strong> – Pada 0.7 % meski volume meningkat, efisiensi klik/tayangan terjaga.</li>
+    <li><strong>Posisi Rata-rata Membaik</strong> – Turun 4 posisi ke 17.7 (↑18.4 %), peringkat website lebih baik.</li>
+    <li><strong>Korelasi Metrik</strong> – Kenaikan tayangan &amp; klik tanpa penurunan CTR menegaskan penargetan efektif; posisi lebih baik memperkuat visibilitas.</li>
+  </ul>
+</section>
+
+<script>
+const buttons = document.querySelectorAll('.tab-btn');
+const sections = document.querySelectorAll('.section');
+
+buttons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    sections.forEach(sec=>sec.classList.remove('active'));
+    document.getElementById(btn.dataset.target).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
