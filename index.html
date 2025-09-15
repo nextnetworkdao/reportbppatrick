@@ -3,274 +3,585 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SEO Performance Report – Juni vs Juli 2025</title>
-
+<title>SEO Performance Report – Juli vs Agustus 2025</title>
 <style>
-/* Modal gambar full screen */
-.img-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
-}
-.img-modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.img-modal.show {
-  display: flex;
-  animation: fadeIn .3s ease;
-}
-@media (max-width: 560px) {
-  table, th, td {
-    font-size: 11px;
-    padding: 6px 8px;
-  }
-}
-body {
-  overflow-x: hidden;
-}
-
-.section {
-  overflow-x: auto;
-}
-
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.table-wrapper table {
-  width: max-content;
-  min-width: 100%;
-}
-
-/* Tambahan untuk tampilan mobile */
-@media (max-width: 560px) {
-  .table-wrapper table {
-    font-size: 12px;
-    min-width: 600px;
-  }
-
-  th, td {
-    white-space: nowrap;
-    padding: 6px 8px;
-  }
-}
 :root{
   --primary:#4F46E5;
   --primary-dark:#3730A3;
   --bg:#F9FAFB;
   --surface:#FFFFFF;
   --text:#111827;
-  --radius:14px;
-  --shadow:0 6px 16px rgba(0,0,0,.08);
-  --transition:.4s cubic-bezier(.25,.8,.5,1);
-  --perspective:800px;
+  --radius:12px;
+  --shadow:0 6px 18px rgba(15,23,42,.08);
+  --up:#16a34a;
+  --down:#dc2626;
+  --neutral:#6b7280;
+  --transition:.32s cubic-bezier(.2,.9,.3,1);
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--text);}
-body{background:var(--bg);line-height:1.55;padding-top:72px;overflow-x:hidden;}
-h1,h2,h3{font-weight:600;color:var(--primary-dark);}
-p,li{font-size:15px;}
-img{max-width:100%;display:block;border-radius:var(--radius);box-shadow:var(--shadow);}
-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
-th,td{padding:10px 14px;border:1px solid #E5E7EB;text-align:left;white-space:nowrap;}
-th{background:#EEF2FF;}
-tr:nth-child(even) td{background:#F3F4F6;}
-ul{margin-left:18px;padding-left:6px;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter, 'Segoe UI', Roboto, Arial, sans-serif;color:var(--text);}
+body{background:var(--bg);padding:92px 16px 48px;line-height:1.5;}
 header{
-  position:fixed;top:0;left:0;right:0;z-index:999;
-  height:64px;display:flex;align-items:center;justify-content:center;
-  background:var(--primary);box-shadow:var(--shadow);color:#FFF;
-  backdrop-filter:blur(10px);
+  position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:#fff;z-index:999;
+  box-shadow:var(--shadow);
 }
-header h1{font-size:19px;color:#FFF;letter-spacing:.4px;}
-.tabs{
-  display:flex;justify-content:space-around;align-items:center;
-  background:var(--surface);margin:0 auto;width:100%;max-width:760px;
-  border-radius:var(--radius);box-shadow:var(--shadow);
-  perspective:var(--perspective);transform-style:preserve-3d;
-}
+header img{height:48px;object-fit:contain;border-radius:6px;}
+.container{max-width:980px;margin:0 auto;}
+h1,h2,h3{color:var(--primary-dark);font-weight:600;margin:12px 0;}
+p,li{font-size:15px;color:#111827;}
+.tabs{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
 .tab-btn{
-  flex:1;padding:14px 0;font-weight:600;border:none;
-  background:transparent;cursor:pointer;color:var(--primary-dark);
-  transition:var(--transition);
+  background:var(--surface);border:1px solid rgba(15,23,42,.06);padding:10px 14px;border-radius:10px;cursor:pointer;
+  font-weight:600;color:var(--primary-dark);transition:var(--transition);
 }
-.tab-btn.active{background:var(--primary);color:#FFF;border-radius:var(--radius);}
-.section{
-  display:none;padding:24px;background:var(--surface);margin:24px auto;
-  width:100%;max-width:760px;border-radius:var(--radius);box-shadow:var(--shadow);
-  animation:fadeIn .6s ease both;
-  transform:rotateX(-10deg) translateZ(60px);
-  overflow-x:auto;
+.tab-btn[aria-selected="true"]{background:var(--primary);color:white;box-shadow:0 8px 22px rgba(79,70,229,.12);}
+
+.card{
+  background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:20px;margin:18px 0;overflow:hidden;
 }
-.section.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
-.section:hover{transform:rotateX(0deg) translateZ(0);transition:transform .6s ease;}
-@media(max-width:560px){
-  header h1{font-size:16px;}
-  .tab-btn{font-size:13px;padding:12px 0;}
-  table,th,td{font-size:13px;}
+
+.table-wrapper{overflow-x:auto;margin-top:12px;}
+.table-wrapper table{border-collapse:collapse;width:100%;min-width:680px;}
+.table-wrapper caption{caption-side:top;text-align:left;font-weight:700;padding-bottom:8px;}
+th,td{padding:10px 12px;border:1px solid #E6E9EE;background:white;font-size:14px;white-space:nowrap;}
+th{background:#EEF2FF;text-align:right;}
+th:first-child,td:first-child{text-align:left;}
+.table-wrapper table th:not(:first-child), .table-wrapper table td:not(:first-child){text-align:right;}
+tr:nth-child(even) td{background:#FBFBFD;}
+.small{font-size:13px;color:#475569;}
+.kv{display:inline-block;padding:6px 10px;border-radius:10px;background:#F3F4F6;font-weight:600;margin-right:8px;}
+
+.trend-up{color:var(--up);font-weight:700;}
+.trend-down{color:var(--down);font-weight:700;}
+.trend-neutral{color:var(--neutral);font-weight:700;}
+
+.analysis h4{margin-top:12px;margin-bottom:6px;font-size:16px;}
+.analysis ul{margin-left:18px;margin-top:8px;}
+.analysis li{margin-bottom:8px;}
+
+.img-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  padding:20px;
 }
-.table-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.table-wrapper table {
-  min-width: 600px;
-  width: max-content;
+.img-modal.show{display:flex;}
+.img-modal img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 10px 30px rgba(2,6,23,.6);}
+
+/* Responsive */
+@media (max-width:720px){
+  .container{padding:0 8px;}
+  th,td{padding:8px 10px;font-size:13px;}
+  .table-wrapper table{min-width:520px;}
 }
 </style>
 </head>
-
 <body>
-<header>  <img src="https://goplus.id/wp-content/uploads/2024/09/20240916_202651.png" width="100px" />
-<br></header><center><br>
-<h3>Laporan SEO Juni–Juli&nbsp;2025</h3></center><br>
-<div class="tabs" id="tabs">
-  <button class="tab-btn active" data-target="ahlifumigasi">Ahlifumigasi.com</button>
-  <button class="tab-btn" data-target="sensorgempa">Sensorgempa.com</button>
-  <button class="tab-btn" data-target="tanogaido">Tanogaido.com</button>
-</div>
+<header>
+  <img src="https://goplus.id/wp-content/uploads/2024/09/20240916_202651.png" alt="Logo" />
+</header>
 
-<section id="ahlifumigasi" class="section active">
-<figure>
-  <img src="ahli.jpg" alt="Screenshot Ahlifumigasi" /><center>
-  <figcaption>Sumber: Google Search Console</figcaption></center>
-</figure>
-  <br>
-  <h2>Ringkasan Performa</h2>
-  <p>Dashboard menunjukkan peningkatan signifikan di semua metrik kunci dari Juni ke Juli 2025, dengan pertumbuhan yang sangat positif di seluruh area.</p>
-<br>
-  <h3>Tabel Perbandingan Metrik</h3>
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr><th>Metrik</th><th>Juni 2025</th><th>Juli 2025</th><th>Perubahan Absolut</th><th>Perubahan %</th><th>Status</th></tr>
-      </thead>
-      <div class="img-modal" id="imgModal">
-  <img src="" id="modalImage" alt="Zoomed Image" />
-</div>
+<div class="container">
+  <h1>Laporan SEO Juli–Agustus 2025</h1>
+  <p class="small">Diupdate: <strong>2025-09-15</strong> — Sumber data: Google Search Console (data yang dikirim oleh user).</p>
+
+  <nav class="tabs" role="tablist" aria-label="Pilih domain">
+    <button class="tab-btn" role="tab" aria-selected="true" aria-controls="ahlifumigasi" id="tab-ahlifumigasi">Ahlifumigasi.com</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="sensorgempa" id="tab-sensorgempa">Sensorgempa.com</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tanogaido" id="tab-tanogaido">Tanogaido.com</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="herbmedicine" id="tab-herbmedicine">Herbmedicineindonesia.com</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="imporbarang" id="tab-imporbarang">Imporbarangjepang.com</button>
+  </nav>
+
+  <!-- AHLIFUMIGASI (original content preserved) -->
+  <section id="ahlifumigasi" class="card" role="tabpanel" aria-labelledby="tab-ahlifumigasi">
+    <figure>
+      <img src="ahlifumigasi.png" alt="Screenshot Ahlifumigasi (Google Search Console)" style="max-width:360px;border-radius:10px;" />
+      <figcaption class="small">Sumber: Google Search Console</figcaption>
+    </figure>
+
+    <h2>Ahlifumigasi.com — Ringkasan Performa</h2>
+    <p class="small">Periode pembanding: <strong>Juli 2025 → Agustus 2025</strong></p>
+
+    <div class="table-wrapper" role="region" aria-label="Tabel metrik Ahlifumigasi">
+      <table>
+        <caption>Tabel Perbandingan Metrik Ahlifumigasi (Juli vs Agustus 2025)</caption>
+        <thead>
+          <tr>
+            <th>Metrik</th>
+            <th>Juli 2025</th>
+            <th>Agustus 2025</th>
+            <th>Perubahan Absolut</th>
+            <th>Perubahan %</th>
+            <th>Tren</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Klik</td>
+            <td>93</td>
+            <td>70</td>
+            <td>-23</td>
+            <td>-24.7%</td>
+            <td class="trend-down">↘ Turun</td>
+          </tr>
+          <tr>
+            <td>Total Tayangan</td>
+            <td>7,170</td>
+            <td>5,160</td>
+            <td>-2,010</td>
+            <td>-28.0%</td>
+            <td class="trend-down">↘ Turun</td>
+          </tr>
+          <tr>
+            <td>CTR Rata-rata</td>
+            <td>1.30%</td>
+            <td>1.37%</td>
+            <td>+0.07 pp</td>
+            <td>+5.4%</td>
+            <td class="trend-up">↗ Naik</td>
+          </tr>
+          <tr>
+            <td>Posisi Rata-rata</td>
+            <td>19.1</td>
+            <td>23.4</td>
+            <td>+4.3 posisi</td>
+            <td>+22.5% (memburuk)</td>
+            <td class="trend-down">↘ Memburuk</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="analysis">
+      <h3>Analisis Mendalam — Ahlifumigasi.com</h3>
+
+      <h4>1) Executive summary</h4>
+      <ul>
+        <li>Volume impresi & klik turun tajam (Tayangan -28.0%, Klik -24.7%) sementara CTR sedikit naik. Ini menunjukkan bahwa halaman yang masih tampil relatif relevan, tetapi banyak kueri/halaman kehilangan visibilitas.</li>
+        <li>Posisi rata-rata memburuk ~4.3 posisi — indikasi utama penurunan visibilitas organik pada kueri bernilai tinggi.</li>
+      </ul>
+
+      <h4>2) Penyebab potensial (hipotesis)</h4>
+      <ul>
+        <li><strong>Perubahan ranking pada kueri bernilai tinggi:</strong> beberapa halaman yang sebelumnya memberi impresi besar kemungkinan turun peringkat.</li>
+        <li><strong>Perubahan SERP / fitur baru:</strong> munculnya Featured Snippet, People Also Ask, atau hasil lokal yang menggantikan impresi sebelumnya.</li>
+        <li><strong>Masalah teknis / indexability:</strong> halaman penting ter-block oleh robots/meta-noindex, sitemap tidak lengkap, atau error 4xx/5xx.</li>
+        <li><strong>Konten kadaluarsa / relevansi menurun:</strong> konten perlu update (tanggal, data, referensi) sehingga CTR naik tetapi impresi turun karena kata kunci relevan kehilangan peringkat.</li>
+        <li><strong>Kompetitor:</strong> pesaing memperkuat konten atau backlinks sehingga mendorong turun peringkat.</li>
+      </ul>
+
+      <h4>3) Tindakan prioritas (CHECKLIST — lakukan verifikasi & perbaikan)</h4>
+      <ul>
+        <li><strong>Di Google Search Console (GSC):</strong>
+          <ul>
+            <li>Performance → Compare (Juli vs Agustus). Urutkan berdasarkan <em>Impressions</em> dan export CSV.</li>
+            <li>Identifikasi top 20 kueri & halaman yang kehilangan impresi terbesar; catat % perubahan dan posisi rata-rata.</li>
+            <li>URL Inspection pada 3–5 halaman kehilangan paling banyak impresi: cek coverage, canonical, last indexed, mobile issues.</li>
+            <li>Coverage & Manual Actions → pastikan tidak ada penalti, dan tidak ada peningkatan error 5xx / soft-404.</li>
+          </ul>
+        </li>
+
+        <li><strong>Teknis & server:</strong>
+          <ul>
+            <li>Periksa server logs untuk response 4xx/5xx, crawl errors, atau penurunan crawl rate.</li>
+            <li>Pastikan sitemap.xml terbaru & submit ulang bila perlu; cek robots.txt untuk block tak sengaja.</li>
+            <li>Audit Core Web Vitals (Chrome UX Report / PageSpeed) untuk halaman prioritas.</li>
+          </ul>
+        </li>
+
+        <li><strong>On-page & snippet:</strong>
+          <ul>
+            <li>Perbarui title & meta description untuk 10 halaman dengan impresi tinggi tapi CTR stagnan/menurun.</li>
+            <li>Tambahkan schema (FAQ, article, breadcrumb) pada halaman yang relevan untuk meningkatkan CTR di SERP.</li>
+          </ul>
+        </li>
+
+        <li><strong>Konten & kompetisi:</strong>
+          <ul>
+            <li>Audit konten yang turun peringkat: perbarui data, tambahkan sumber, perkuat internal linking ke halaman tersebut.</li>
+            <li>Analisa competitor: halaman mana yang menggantikan posisimu? ambil insight struktur & word count.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>4) Filter & query yang disarankan di GSC</h4>
+      <ul>
+        <li>Performance → Compare: Date range Juli vs Agustus → Filter: Pages (descending Impressions) → Export.</li>
+        <li>Tambahkan filter: Query contains [kata kunci kategori penting] untuk melihat perubahan impresi per topik.</li>
+      </ul>
+
+      <h4>5) KPI yang harus dimonitor setelah perbaikan</h4>
+      <ul>
+        <li>Impressions & clicks per page (weekly snapshots).</li>
+        <li>Average position per affected query.</li>
+        <li>Index coverage (valid pages) dan jumlah pages with errors.</li>
+        <li>Server errors (5xx) dan Core Web Vitals untuk halaman prioritas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SENSORGEMPA -->
+  <section id="sensorgempa" class="card" role="tabpanel" aria-labelledby="tab-sensorgempa" hidden>
+    <figure>
+      <img src="sensorgempa.png" alt="Screenshot Sensorgempa (Google Search Console)" style="max-width:360px;border-radius:10px;" />
+      <figcaption class="small">Sumber: Google Search Console</figcaption>
+    </figure>
+
+    <h2>Sensorgempa.com — Ringkasan Performa</h2>
+    <p class="small">Periode pembanding: <strong>Juli 2025 → Agustus 2025</strong></p>
+
+    <div class="table-wrapper" role="region" aria-label="Tabel metrik Sensorgempa">
+      <table>
+        <caption>Tabel Perbandingan Metrik Sensorgempa (Juli vs Agustus 2025)</caption>
+        <thead>
+          <tr>
+            <th>Metrik</th>
+            <th>Juli 2025</th>
+            <th>Agustus 2025</th>
+            <th>Perubahan Absolut</th>
+            <th>Perubahan %</th>
+            <th>Tren</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Klik</td>
+            <td>222</td>
+            <td>430</td>
+            <td>+208</td>
+            <td>+93.7%</td>
+            <td class="trend-up">↗ Naik</td>
+          </tr>
+          <tr>
+            <td>Total Tayangan</td>
+            <td>22,700</td>
+            <td>37,553</td>
+            <td>+14,853</td>
+            <td>+65.4%</td>
+            <td class="trend-up">↗ Naik</td>
+          </tr>
+          <tr>
+            <td>CTR Rata-rata</td>
+            <td>1.00%</td>
+            <td>1.03%</td>
+            <td>+0.03 pp</td>
+            <td>+3.0%</td>
+            <td class="trend-up">↗ Naik</td>
+          </tr>
+          <tr>
+            <td>Posisi Rata-rata</td>
+            <td>12.7</td>
+            <td>12.2</td>
+            <td>-0.5 posisi</td>
+            <td>-3.9% (membaik)</td>
+            <td class="trend-up">↗ Membaik</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="analysis">
+      <h3>Analisis Mendalam — Sensorgempa.com</h3>
+
+      <h4>1) Executive summary</h4>
+      <ul>
+        <li>Sensorgempa menunjukkan lonjakan impresi & klik yang besar (Impr +65.4%, Klik +93.7%) dengan sedikit perbaikan posisi rata-rata. Ini adalah sinyal peningkatan visibilitas yang sehat.</li>
+        <li>CTR relatif stabil/naik tipis, menandakan snippet masih bekerja untuk menarik klik.</li>
+      </ul>
+
+      <h4>2) Penyebab potensial (hipotesis)</h4>
+      <ul>
+        <li><strong>Peristiwa topikal/berita:</strong> Sensorgempa dapat memperoleh traffic karena peristiwa (gempa) yang meningkatkan pencarian; spike organic bersifat real-time dan episodik.</li>
+        <li><strong>Perbaikan teknis atau optimasi konten:</strong> indexasi atau update konten yang meningkatkan kepantasan untuk query tertentu.</li>
+        <li><strong>Pergeseran SERP:</strong> SERP mungkin menampilkan lebih banyak hasil yang menguntungkan (mis. news box) yang mengarahkan lebih banyak klik ke situs yang memberikan informasi cepat.</li>
+      </ul>
+
+      <h4>3) Tindakan prioritas (CHECKLIST — manfaatkan momentum)</h4>
+      <ul>
+        <li><strong>Identifikasi halaman & query pendorong:</strong> di GSC export top pages & queries yang menyumbang mayoritas kenaikan. Tandai halaman yang mendapat kenaikan impresi terbesar.</li>
+        <li><strong>Skalakan konten yang berkinerja baik:</strong> perbanyak varian artikel/popular post, tambahkan internal link ke halaman prioritas, dan buat landing page ringkasan jika beberapa artikel terkait mendapat traffic.</li>
+        <li><strong>Infrastruktur & caching:</strong> pastikan server & CDN siap untuk traffic (cek hit rate cache, timeouts, load balancer).</li>
+        <li><strong>Monetisasi & tracking:</strong> pasang event tracking (Analytics/GA4) untuk konversi/engagement pada halaman puncak sehingga kamu dapat mengukur nilai traffic baru tersebut.</li>
+      </ul>
+
+      <h4>4) Opportunity checklist</h4>
+      <ul>
+        <li>Tambahkan schema khusus (event / live update / article) agar hasil richer di SERP.</li>
+        <li>Analisa competitor yang juga naik — lihat apakah mereka mendapatkan Featured Snippets yang bisa kamu rebut dengan format konten yang sesuai.</li>
+        <li>Review CTR per query: jika CTR rendah di query bervolume besar, optimasi title/description untuk menaikkan CTR lebih lanjut.</li>
+      </ul>
+
+      <h4>5) KPI & monitoring</h4>
+      <ul>
+        <li>Monitor top pages by impressions & clicks (export weekly) — segera rekap pages yang memberi >60% dari kenaikan total.</li>
+        <li>Monitor server metrics (uptime, median response time) saat ada lonjakan trafik.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TANOGAIDO -->
+  <section id="tanogaido" class="card" role="tabpanel" aria-labelledby="tab-tanogaido" hidden>
+    <figure>
+      <img src="tanogaido.png" alt="Screenshot Tanogaido (Google Search Console)" style="max-width:360px;border-radius:10px;" />
+      <figcaption class="small">Sumber: Google Search Console</figcaption>
+    </figure>
+
+    <h2>Tanogaido.com — Ringkasan Performa</h2>
+    <p class="small">Periode pembanding: <strong>Juli 2025 → Agustus 2025</strong></p>
+
+    <div class="table-wrapper" role="region" aria-label="Tabel metrik Tanogaido">
+      <table>
+        <caption>Tabel Perbandingan Metrik Tanogaido (Juli vs Agustus 2025)</caption>
+        <thead>
+          <tr>
+            <th>Metrik</th>
+            <th>Juli 2025</th>
+            <th>Agustus 2025</th>
+            <th>Perubahan Absolut</th>
+            <th>Perubahan %</th>
+            <th>Tren</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Klik</td>
+            <td>1,980</td>
+            <td>1,725</td>
+            <td>-255</td>
+            <td>-12.9%</td>
+            <td class="trend-down">↘ Turun</td>
+          </tr>
+          <tr>
+            <td>Total Tayangan</td>
+            <td>282,000</td>
+            <td>225,832</td>
+            <td>-56,168</td>
+            <td>-19.9%</td>
+            <td class="trend-down">↘ Turun</td>
+          </tr>
+          <tr>
+            <td>CTR Rata-rata</td>
+            <td>0.70%</td>
+            <td>0.75%</td>
+            <td>+0.05 pp</td>
+            <td>+7.1%</td>
+            <td class="trend-up">↗ Naik</td>
+          </tr>
+          <tr>
+            <td>Posisi Rata-rata</td>
+            <td>17.7</td>
+            <td>19.7</td>
+            <td>+2.0 posisi</td>
+            <td>+11.3% (memburuk)</td>
+            <td class="trend-down">↘ Memburuk</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="analysis">
+      <h3>Analisis Mendalam — Tanogaido.com</h3>
+
+      <h4>1) Executive summary</h4>
+      <ul>
+        <li>Tanogaido mengalami penurunan impresi & klik (Impr -19.9%, Klik -12.9%) meski CTR sedikit naik. Ini menunjukkan turunnya visibilitas keseluruhan tetapi kualitas snippet untuk yang masih tampil sedikit lebih baik.</li>
+        <li>Posisi rata-rata melemah ~2 posisi — sumber utama penurunan traffic.</li>
+      </ul>
+
+      <h4>2) Penyebab potensial (hipotesis)</h4>
+      <ul>
+        <li>Penurunan posisi pada kueri ber-volume besar — cek kueri & halaman yang menyumbang impresi mayoritas.</li>
+        <li>Konten mungkin mengalami <em>content decay</em> (perlu update), atau pesaing melakukan optimasi (konten lebih segar / backlink).</li>
+        <li>Mungkin ada perubahan teknis (canonical, hreflang, duplicate content) yang menyebabkan impresi terdistribusi ke URL lain.</li>
+      </ul>
+
+      <h4>3) Tindakan prioritas (CHECKLIST)</h4>
+      <ul>
+        <li><strong>GSC → Performance:</strong> compare Juli vs Agustus → export pages/queries; fokus pada top 50 pages that lost impressions.</li>
+        <li><strong>On-page improvements:</strong> perbarui artikel yang kehilangan peringkat: tambahkan nilai baru (data, video, update), optimasi headings, tambahkan internal links ke halaman penting.</li>
+        <li><strong>Technical checks:</strong> URL inspection pada halaman decline, cek canonical, mobile usability, structured data errors.</li>
+        <li><strong>Competitive analysis & content gap:</strong> identifikasi konten kompetitor yang menggantikan posisi; tiru struktur & perkuat dengan data lokal/unik.</li>
+      </ul>
+
+      <h4>4) A/B snippet testing</h4>
+      <ul>
+        <li>Coba variasi title/meta untuk 5 page dengan impressions tinggi tapi posisi menurun; ukur CTR dan klik di GSC setelah perubahan.</li>
+      </ul>
+
+      <h4>5) KPI & monitoring</h4>
+      <ul>
+        <li>Weekly snapshot: impressions & clicks per page; position change; pages with new errors in Coverage & Mobile Usability.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HERBMEDICINE (new) -->
+  <section id="herbmedicine" class="card" role="tabpanel" aria-labelledby="tab-herbmedicine" hidden>
+      <figure>
+      <img src="herbmedichine.png" alt="Screenshot Ahlifumigasi (Google Search Console)" style="max-width:360px;border-radius:10px;" />
+      <figcaption class="small">Sumber: Google Search Console</figcaption>
+    </figure>
+    <h2>Herbmedicineindonesia.com — Ringkasan Performa</h2>
+    <p class="small">Periode: <strong>Juli 2025 → Agustus 2025</strong></p>
+    <div class="table-wrapper" role="region" aria-label="Tabel metrik Herbmedicineindonesia">
+      <table>
+        <caption>Tabel Perbandingan Metrik Herbmedicineindonesia (Juli vs Agustus 2025)</caption>
+        <thead>
+          <tr>
+            <th>Metrik</th><th>Juli 2025</th><th>Agustus 2025</th><th>Perubahan Absolut</th><th>Perubahan %</th><th>Tren</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Total Klik</td><td>14</td><td>17</td><td>+3</td><td>+21.4%</td><td class="trend-up">↗ Naik</td></tr>
+          <tr><td>Total Tayangan</td><td>3,212</td><td>3,835</td><td>+623</td><td>+19.4%</td><td class="trend-up">↗ Naik</td></tr>
+          <tr><td>CTR Rata-rata</td><td>0.50%</td><td>0.48%</td><td>-0.02 pp</td><td>-4.9%</td><td class="trend-down">↘ Turun</td></tr>
+          <tr><td>Posisi Rata-rata</td><td>55.3</td><td>59.0</td><td>+3.7 posisi</td><td>+6.7% (memburuk)</td><td class="trend-down">↘ Memburuk</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+<div class="analysis">
+    <h3>Analisis Mendalam — Herbmedicineindonesia.com</h3>
+
+    <h4>1) Executive summary</h4>
+    <ul>
+      <li>Impresi & klik naik, tetapi posisi rata-rata memburuk sehingga ranking masih rendah (di luar halaman 1).</li>
+      <li>CTR turun tipis → snippet kurang menarik meskipun ada peningkatan impresi.</li>
+    </ul>
+
+    <h4>2) Penyebab potensial (hipotesis)</h4>
+    <ul>
+      <li>Konten muncul di lebih banyak kueri baru, tetapi peringkatnya masih rendah.</li>
+      <li>Title/meta kurang menarik sehingga CTR stagnan.</li>
+      <li>Kurangnya backlink & internal link menyebabkan ranking sulit naik.</li>
+    </ul>
+
+    <h4>3) Tindakan prioritas (CHECKLIST)</h4>
+    <ul>
+      <li><strong>Optimasi snippet:</strong> perbarui title & meta description agar lebih menarik (gunakan angka, klaim kuat, CTA singkat).</li>
+      <li><strong>Konten:</strong> fokus perkuat halaman yang sudah naik impresi, tambahkan konten pendukung (FAQ, artikel detail).</li>
+      <li><strong>Link building:</strong> tambahkan internal link ke halaman target & mulai campaign backlink relevan.</li>
+    </ul>
+
+    <h4>4) KPI & monitoring</h4>
+    <ul>
+      <li>Weekly: impresi & klik per halaman yang naik.</li>
+      <li>CTR per query (khusus kueri dengan tayangan >100).</li>
+      <li>Posisi rata-rata target keyword utama.</li>
+    </ul>
+  </div>
+</section>
+
+  <!-- IMPORBARANGJEPANG (new) -->
+  <section id="imporbarang" class="card" role="tabpanel" aria-labelledby="tab-imporbarang" hidden>
+  <figure>
+      <img src="imporbarangjepang.png" alt="Screenshot Ahlifumigasi (Google Search Console)" style="max-width:360px;border-radius:10px;" />
+      <figcaption class="small">Sumber: Google Search Console</figcaption>
+    </figure>
+    <h2>Imporbarangjepang.com — Ringkasan Performa</h2>
+    <p class="small">Periode: <strong>Juli 2025 → Agustus 2025</strong></p>
+    <div class="table-wrapper" role="region" aria-label="Tabel metrik Imporbarangjepang">
+      <table>
+        <caption>Tabel Perbandingan Metrik Imporbarangjepang (Juli vs Agustus 2025)</caption>
+        <thead>
+          <tr>
+            <th>Metrik</th><th>Juli 2025</th><th>Agustus 2025</th><th>Perubahan Absolut</th><th>Perubahan %</th><th>Tren</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Total Klik</td><td>22</td><td>14</td><td>-8</td><td>-36.4%</td><td class="trend-down">↘ Turun</td></tr>
+          <tr><td>Total Tayangan</td><td>1,094</td><td>1,118</td><td>+24</td><td>+2.2%</td><td class="trend-up">↗ Naik</td></tr>
+          <tr><td>CTR Rata-rata</td><td>2.01%</td><td>1.10%</td><td>-0.91 pp</td><td>-45.4%</td><td class="trend-down">↘ Turun</td></tr>
+          <tr><td>Posisi Rata-rata</td><td>16.9</td><td>19.5</td><td>+2.6 posisi</td><td>+15.4% (memburuk)</td><td class="trend-down">↘ Memburuk</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+<div class="analysis">
+    <h3>Analisis Mendalam — Imporbarangjepang.com</h3>
+
+    <h4>1) Executive summary</h4>
+    <ul>
+      <li>Klik turun -36% meskipun impresi sedikit naik → indikasi snippet tidak menarik atau ranking turun di kueri penting.</li>
+      <li>CTR anjlok hampir setengah → snippet butuh optimasi segera.</li>
+    </ul>
+
+    <h4>2) Penyebab potensial (hipotesis)</h4>
+    <ul>
+      <li>Ranking melemah pada kueri dengan niat beli tinggi.</li>
+      <li>Title/desc tidak menarik dibanding kompetitor.</li>
+      <li>Konten kurang relevan dengan kueri yang memberi impresi baru.</li>
+    </ul>
+
+    <h4>3) Tindakan prioritas (CHECKLIST)</h4>
+    <ul>
+      <li><strong>Snippet:</strong> ubah title/meta → gunakan kata “harga”, “cara impor”, “legal” untuk menarik klik.</li>
+      <li><strong>Konten:</strong> perbaiki artikel utama (cara impor, panduan biaya) dengan struktur lebih jelas & FAQ.</li>
+      <li><strong>Analisa query:</strong> di GSC, cari kueri dengan impresi naik tapi CTR rendah → optimasi halaman terkait.</li>
+    </ul>
+
+    <h4>4) KPI & monitoring</h4>
+    <ul>
+      <li>CTR per query utama (target naik >1.5%).</li>
+      <li>Klik total mingguan dibanding impresi.</li>
+      <li>Ranking rata-rata untuk keyword “impor barang Jepang”.</li>
+    </ul>
+  </div>
+</section>
+
+  <!-- Modal for images -->
+  <div class="img-modal" id="imgModal" role="dialog" aria-hidden="true" aria-label="Gambar besar">
+    <img src="" id="modalImage" alt="Gambar diperbesar" />
+  </div>
+
+</div> <!-- .container -->
+
 <script>
-// Buka modal saat gambar diklik
-document.querySelectorAll("img").forEach(img => {
-  img.addEventListener("click", () => {
-    const modal = document.getElementById("imgModal");
-    const modalImg = document.getElementById("modalImage");
-    modalImg.src = img.src;
-    modal.classList.add("show");
+/* Tabs handling (accessible-ish) */
+const tabs = document.querySelectorAll('[role="tab"]');
+const panels = document.querySelectorAll('[role="tabpanel"]');
+
+tabs.forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    // reset
+    tabs.forEach(t=> t.setAttribute('aria-selected','false'));
+    panels.forEach(p=> p.hidden = true);
+    // activate
+    tab.setAttribute('aria-selected','true');
+    const id = tab.getAttribute('aria-controls');
+    document.getElementById(id).hidden = false;
+    window.scrollTo({top:72, behavior:'smooth'});
+  });
+  tab.addEventListener('keydown', (e)=>{
+    let idx = Array.prototype.indexOf.call(tabs, tab);
+    if(e.key === 'ArrowRight'){ idx = (idx+1) % tabs.length; tabs[idx].focus(); }
+    if(e.key === 'ArrowLeft'){ idx = (idx-1 + tabs.length) % tabs.length; tabs[idx].focus(); }
   });
 });
 
-// Tutup modal saat klik di luar gambar
-document.getElementById("imgModal").addEventListener("click", (e) => {
-  if (e.target.id === "imgModal") {
-    e.target.classList.remove("show");
+/* Image modal: only open modal when clicking an image that is inside container (prevents opening for UI icons) */
+document.querySelectorAll('.container img').forEach(img=>{
+  img.addEventListener('click', (ev)=>{
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = img.src;
+    modal.setAttribute('aria-hidden','false');
+    modal.classList.add('show');
+  });
+});
+document.getElementById('imgModal').addEventListener('click', (e)=>{
+  if(e.target.id === 'imgModal'){
+    e.currentTarget.classList.remove('show');
+    e.currentTarget.setAttribute('aria-hidden','true');
+    document.getElementById('modalImage').src = '';
   }
 });
 </script>
-      <tbody>
-        <tr><td>Total Klik</td><td>50</td><td>93</td><td>+43 klik</td><td>+86.0%</td><td>↗ Naik</td></tr>
-        <tr><td>Total Tayangan </td><td>4,760</td><td>7,170</td><td>+2,410</td><td>+50.6%</td><td>↗ Naik</td></tr>
-        <tr><td>CTR Rata-rata</td><td>1.1%</td><td>1.3%</td><td>+0.2 pp</td><td>+18.2%</td><td>↗ Naik</td></tr>
-        <tr><td>Posisi Rata-rata</td><td>21.6</td><td>19.1</td><td>-2.5&nbsp;posisi</td><td>11.6% membaik</td><td>↗ Membaik</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>Analisis Mendalam</h3>
-  <ul>
-    <li><strong>Analisis Efisiensi</strong> – CTR Juli 1.30 % vs Juni 1.05 % (↑23.5 %). Peningkatan menunjukkan kualitas website &amp; relevansi konten makin baik.</li>
-    <li><strong>Volume Pertumbuhan</strong> – Klik +86 %, Tayangan +51 %. Rasio klik yang lebih tinggi menandakan efektivitas meningkat.</li>
-    <li><strong>Positioning &amp; Visibilitas</strong> – Posisi rata-rata naik 2.5 ke 19.1 (↑11.6 %), memperbesar visibilitas &amp; traffic.</li>
-    <li><strong>Korelasi Metrik</strong> – Tayangan ↑50.6 % ⟹ Klik ↑86 %; CTR naik 18.2 % menegaskan optimasi konten berhasil.</li>
-  </ul>
-</section>
-
-<section id="sensorgempa" class="section">
-<figure>
-  <img src="sensor.jpg" alt="Screenshot Ahlifumigasi" /><center>
-  <figcaption>Sumber: Google Search Console</figcaption></center>
-</figure>
-  <br>
-  <h2>Ringkasan Performa</h2>
-  <p>Dashboard baru menunjukkan perubahan dinamis pada metrik kinerja antara Juni ke Juli 2025</p>
-<br>
-  <h3>Tabel Perbandingan Metrik</h3>
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr><th>Metrik</th><th>Juni 2025</th><th>Juli 2025</th><th>Perubahan Absolut</th><th>Perubahan %</th><th>Tren</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Total Klik</td><td>212</td><td>222</td><td>+10</td><td>+4.7%</td><td>Naik</td></tr>
-        <tr><td>Total Tayangan</td><td>54,400</td><td>22,700</td><td>-31,700</td><td>-58.3%</td><td>Turun</td></tr>
-        <tr><td>CTR Rata-rata</td><td>0.4%</td><td>1.0%</td><td>+0.6 pp</td><td>+150.0%</td><td>Naik</td></tr>
-        <tr><td>Posisi Rata-rata</td><td>9.8</td><td>12.7</td><td>+2.9 posisi</td><td>29.6% memburuk</td><td>Membaik¹</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>Interpretasi &amp; Analisis</h3>
-  <ul>
-    <li><strong>Total Klik</strong> naik tipis 4.7 %, menjaga stabilitas meski tayangan turun drastis.</li>
-    <li><strong>Efisiensi Traffic</strong> – Tayangan turun, tetapi CTR melonjak, audiens kian relevan.</li>
-    <li><strong>Stabilitas Klik</strong> – Volume klik relatif stabil, kampanye tetap menarik walau reach mengecil.</li>
-  </ul>
-</section>
-
-<section id="tanogaido" class="section">
-<figure>
-  <img src="tanogaido.jpg" alt="Screenshot Ahlifumigasi" /><center>
-  <figcaption>Sumber: Google Search Console</figcaption></center>
-</figure>
-    <br>
-  <h2>Ringkasan Performa</h2>
-  <p>Dashboard menunjukkan peningkatan signifikan di semua metrik kunci dari Juni ke Juli 2025, dengan pertumbuhan yang sangat positif.</p>
-<br>
-  <h3>Tabel Perbandingan Metrik</h3>
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr><th>Metrik</th><th>Juni 2025</th><th>Juli 2025</th><th>Perubahan Absolut</th><th>Perubahan %</th><th>Tren</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Total Klik</td><td>1,430</td><td>1,980</td><td>+550</td><td>+38.5%</td><td>Naik</td></tr>
-        <tr><td>Total Tayangan</td><td>213,000</td><td>282,000</td><td>+69,000</td><td>+32.4%</td><td>Naik</td></tr>
-        <tr><td>CTR Rata-rata</td><td>0.7%</td><td>0.7%</td><td>0</td><td>0.0%</td><td>Stabil</td></tr>
-        <tr><td>Posisi Rata-rata</td><td>21.7</td><td>17.7</td><td>-4.0 posisi</td><td>+18.4% Naik</td><td>Membaik</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>Interpretasi &amp; Insight</h3>
-  <ul>
-    <li><strong>Total Klik &amp; Tayangan Naik Signifikan</strong> – Klik ↑38.5 %, Tayangan ↑32.4 %; volume &amp; reach meningkat.</li>
-    <li><strong>CTR Stabil</strong> – Pada 0.7 % meski volume meningkat, efisiensi klik/tayangan terjaga.</li>
-    <li><strong>Posisi Rata-rata Membaik</strong> – Turun 4 posisi ke 17.7 (↑18.4 %), peringkat website lebih baik.</li>
-    <li><strong>Korelasi Metrik</strong> – Kenaikan tayangan &amp; klik tanpa penurunan CTR menegaskan penargetan efektif; posisi lebih baik memperkuat visibilitas.</li>
-  </ul>
-</section>
-
-<script>
-const buttons = document.querySelectorAll('.tab-btn');
-const sections = document.querySelectorAll('.section');
-
-buttons.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    buttons.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    sections.forEach(sec=>sec.classList.remove('active'));
-    document.getElementById(btn.dataset.target).classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
-});
-</script>
 </body>
-</html>
+                                                               </html>
